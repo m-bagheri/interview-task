@@ -58,16 +58,19 @@ It will accept different datetime format which are listed here:
 
 # Requirements
 
-PHP >= 7.2
-OpenSSL PHP Extension
-PDO PHP Extension
-Mbstring PHP Extension
+    PHP >= 7.2
+    OpenSSL PHP Extension
+    PDO PHP Extension
+    Mbstring PHP Extension
 
 # How to use?
 
 After cloning the repository to your LAMP local device you simply need to cd to the cloned path (like cd /var/www/vhosts/interview-task) and run the following command through command line:
 
+```
+composer install
 php -S localhost:8000 -t public
+```
 
 keep this command running while you are using the API and on your browser head to localhost:8000
 
@@ -75,7 +78,7 @@ That page will take you to the guide of how to use the API.
 
 On another command line tab you could cd to the cloned path (like cd /var/www/vhosts/interview-task) and run the following command for the phpunit tests:
 
-phpunit
+```phpunit```
 
 
 
