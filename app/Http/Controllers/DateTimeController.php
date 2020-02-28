@@ -19,6 +19,7 @@ class DateTimeController extends Controller
      *
      * @param string $first_datetime datetime parameter
      * @param string $second_datetime datetime parameter
+     * @param string $type (second, minute, hour, year or NULL)
      *
      * @return json string
      */
@@ -60,10 +61,11 @@ class DateTimeController extends Controller
      *
      * @param string $first_datetime datetime parameter
      * @param string $second_datetime datetime parameter
+     * @param string $type (second, minute, hour, year or NULL)
      *
      * @return json string
      */
-    public function numberOfWeekdays($first_datetime, $second_datetime)
+    public function numberOfWeekdays($first_datetime, $second_datetime, $type = NULL)
     {
         $first_datetime_object = $this->convertStringToDateTime($first_datetime);
         $second_datetime_object = $this->convertStringToDateTime($second_datetime);
@@ -109,6 +111,7 @@ class DateTimeController extends Controller
      *
      * @param string $first_datetime datetime parameter
      * @param string $second_datetime datetime parameter
+     * @param string $type (second, minute, hour, year or NULL)
      *
      * @return json string
      */
@@ -144,6 +147,14 @@ class DateTimeController extends Controller
         return response()->json($output, 200);
     }
 
+
+    /**
+     * convertStringToDateTime
+     *
+     * @param string $string datetime parameter
+     *
+     * @return DateTime object
+     */
     private function convertStringToDateTime(string $string) {
         $string = urldecode($string);
         $datetime_possible_formats = [
