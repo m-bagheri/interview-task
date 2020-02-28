@@ -11,6 +11,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/',  ['uses' => 'HomeController@home']);
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+  $router->get('numberOfDays/{first_datetime}/{second_datetime}[/{type}]',  ['uses' => 'DateTimeController@numberOfDays']);
+  $router->get('numberOfWeekdays/{first_datetime}/{second_datetime}[/{type}]',  ['uses' => 'DateTimeController@numberOfWeekdays']);
+  $router->get('numberOfWeeks/{first_datetime}/{second_datetime}[/{type}]',  ['uses' => 'DateTimeController@numberOfWeeks']);
 });
